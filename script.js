@@ -14,11 +14,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const timeElement = document.createElement('div');
     timeElement.className = 'time-display';
     timeElement.innerHTML = `<p>当前时间: ${dateString}</p>`;
-    timeElement.style.textAlign = 'center';
-    timeElement.style.marginTop = '20px';
-    timeElement.style.padding = '10px';
-    timeElement.style.backgroundColor = '#e6f7ff';
-    timeElement.style.borderRadius = '4px';
     
     // 将元素添加到页面中
     const container = document.querySelector('.container');
@@ -27,34 +22,19 @@ document.addEventListener('DOMContentLoaded', function() {
     // 添加一个按钮来改变页面主题色
     const themeButton = document.createElement('button');
     themeButton.textContent = '切换主题';
-    themeButton.style.display = 'block';
-    themeButton.style.margin = '20px auto';
-    themeButton.style.padding = '8px 16px';
-    themeButton.style.backgroundColor = '#0366d6';
-    themeButton.style.color = 'white';
-    themeButton.style.border = 'none';
-    themeButton.style.borderRadius = '4px';
-    themeButton.style.cursor = 'pointer';
     
     // 切换主题的功能
     let darkTheme = false;
     themeButton.addEventListener('click', function() {
         const body = document.body;
-        const container = document.querySelector('.container');
         
         if (darkTheme) {
             // 切换到亮色主题
-            body.style.backgroundColor = 'white';
-            body.style.color = '#333';
-            container.style.backgroundColor = '#f9f9f9';
-            document.querySelector('h1').style.color = '#0366d6';
+            body.classList.remove('dark-theme');
             themeButton.textContent = '切换到暗色主题';
         } else {
             // 切换到暗色主题
-            body.style.backgroundColor = '#2d333b';
-            body.style.color = '#e6edf3';
-            container.style.backgroundColor = '#22272e';
-            document.querySelector('h1').style.color = '#58a6ff';
+            body.classList.add('dark-theme');
             themeButton.textContent = '切换到亮色主题';
         }
         
